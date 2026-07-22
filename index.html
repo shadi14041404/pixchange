@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#6f3fa0">
+  <title>PiXchange</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="notice">Testnet prototype — no real transactions are enabled.</div>
+
+  <header>
+    <div class="brand"><span>πX</span> PiXchange</div>
+    <nav>
+      <a href="#market">Market</a>
+      <a href="#safety">Safety</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <p class="eyebrow">GLOBAL PI P2P PROTOTYPE</p>
+        <h1>Exchange Pi with confidence.</h1>
+        <p class="lead">A clean Testnet prototype for exploring verified peer-to-peer Pi offers.</p>
+        <div class="actions">
+          <button id="piLogin">Sign in with Pi</button>
+          <a class="secondary" href="#market">Explore demo offers</a>
+        </div>
+        <p id="status"></p>
+      </div>
+
+      <aside>
+        <div class="topline"><span>Market snapshot</span><b>Demo</b></div>
+        <h2>0.00 USD</h2>
+        <p>Reference price</p>
+        <div class="stats">
+          <div><strong>24</strong><span>Buy offers</span></div>
+          <div><strong>19</strong><span>Sell offers</span></div>
+          <div><strong>1,248</strong><span>Verified users</span></div>
+        </div>
+      </aside>
+    </section>
+
+    <section id="market" class="section">
+      <p class="eyebrow">P2P MARKET</p>
+      <h2>Demo offers</h2>
+      <div class="tabs">
+        <button class="tab active" data-type="buy">Buy Pi</button>
+        <button class="tab" data-type="sell">Sell Pi</button>
+      </div>
+      <div id="offers" class="grid"></div>
+    </section>
+
+    <section id="safety" class="section safety">
+      <div>
+        <p class="eyebrow">SAFETY FIRST</p>
+        <h2>Prototype only</h2>
+        <p>This version does not custody funds, process fiat payments, or execute Mainnet transfers.</p>
+      </div>
+      <ul>
+        <li>Never request wallet passphrases</li>
+        <li>Testnet-only flow</li>
+        <li>Fraud controls planned</li>
+        <li>Legal review required before launch</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <strong>PiXchange</strong>
+    <span>Testnet prototype</span>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
