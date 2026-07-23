@@ -1,80 +1,536 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#6f3fa0">
-  <title>PiXchange</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <div class="notice">Testnet prototype — no real transactions are enabled.</div>
 
-  <header>
-    <div class="brand"><span>πX</span> PiXchange</div>
-    <nav>
-      <a href="#market">Market</a>
-      <a href="#safety">Safety</a>
-      <a href="privacy.html">Privacy</a>
-      <a href="terms.html">Terms</a>
-    </nav>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, viewport-fit=cover"
+  >
+
+  <meta
+    name="description"
+    content="PiXchange سوق عربي لعرض وشراء وبيع المنتجات باستخدام Pi."
+  >
+
+  <meta name="theme-color" content="#5d2d91">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+  <title>PiXchange | السوق</title>
+
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="assets/logo.png">
+  <link rel="apple-touch-icon" href="assets/logo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
+
+  <!-- شاشة التحميل -->
+  <div id="appLoader" class="app-loader" aria-live="polite">
+    <div class="loader-logo">π</div>
+    <div class="loader-spinner"></div>
+    <p>جاري تحميل PiXchange...</p>
+  </div>
+
+  <!-- الشريط العلوي -->
+  <header class="main-header">
+    <div class="header-container">
+
+      <a href="index.html" class="brand" aria-label="الصفحة الرئيسية">
+        <div class="brand-logo">π</div>
+
+        <div class="brand-text">
+          <strong>PiXchange</strong>
+          <span>السوق المجتمعي</span>
+        </div>
+      </a>
+
+      <div class="header-actions">
+
+        <button
+          id="themeToggle"
+          class="icon-button"
+          type="button"
+          aria-label="تغيير مظهر التطبيق"
+        >
+          <span id="themeIcon">☾</span>
+        </button>
+
+        <a
+          href="notifications.html"
+          class="icon-button notification-button"
+          aria-label="الإشعارات"
+        >
+          <span>🔔</span>
+          <span id="notificationBadge" class="notification-badge hidden">0</span>
+        </a>
+
+        <a
+          id="headerAccountLink"
+          href="login.html"
+          class="account-button"
+        >
+          <span id="headerAccountIcon">👤</span>
+          <span id="headerAccountText">دخول</span>
+        </a>
+
+      </div>
+    </div>
   </header>
 
   <main>
-    <section class="hero">
-      <div>
-        <p class="eyebrow">GLOBAL PI P2P PROTOTYPE</p>
-        <h1>Exchange Pi with confidence.</h1>
-        <p class="lead">A clean Testnet prototype for exploring verified peer-to-peer Pi offers.</p>
-        <div class="actions">
-          <button id="piLogin">Sign in with Pi</button>
-          <a class="secondary" href="#market">Explore demo offers</a>
+
+    <!-- القسم الترحيبي -->
+    <section class="hero-section">
+      <div class="hero-overlay"></div>
+
+      <div class="hero-content">
+
+        <div class="hero-badge">
+          سوق مجتمع Pi
         </div>
-        <p id="status"></p>
-      </div>
 
-      <aside>
-        <div class="topline"><span>Market snapshot</span><b>Demo</b></div>
-        <h2>0.00 USD</h2>
-        <p>Reference price</p>
-        <div class="stats">
-          <div><strong>24</strong><span>Buy offers</span></div>
-          <div><strong>19</strong><span>Sell offers</span></div>
-          <div><strong>1,248</strong><span>Verified users</span></div>
+        <h1>
+          اشترِ وبِع وتبادل
+          <span>باستخدام Pi</span>
+        </h1>
+
+        <p>
+          اكتشف منتجات من بائعين داخل مجتمع Pi وتواصل معهم مباشرة
+          بطريقة سهلة وآمنة.
+        </p>
+
+        <form id="heroSearchForm" class="hero-search" role="search">
+
+          <label for="heroSearchInput" class="sr-only">
+            ابحث عن منتج
+          </label>
+
+          <input
+            id="heroSearchInput"
+            type="search"
+            placeholder="ابحث عن جوال، سيارة، عقار..."
+            autocomplete="off"
+          >
+
+          <button type="submit">
+            بحث
+          </button>
+
+        </form>
+
+        <div class="hero-buttons">
+
+          <a href="market.html" class="primary-button">
+            تصفح السوق
+          </a>
+
+          <a href="add-product.html" class="secondary-button">
+            أضف سلعتك
+          </a>
+
         </div>
-      </aside>
+      </div>
     </section>
 
-    <section id="market" class="section">
-      <p class="eyebrow">P2P MARKET</p>
-      <h2>Demo offers</h2>
-      <div class="tabs">
-        <button class="tab active" data-type="buy">Buy Pi</button>
-        <button class="tab" data-type="sell">Sell Pi</button>
+    <!-- إحصائيات -->
+    <section class="stats-section">
+      <div class="section-container">
+
+        <div class="stats-grid">
+
+          <article class="stat-card">
+            <span class="stat-icon">📦</span>
+            <strong id="productsCount">0</strong>
+            <p>منتج متوفر</p>
+          </article>
+
+          <article class="stat-card">
+            <span class="stat-icon">👥</span>
+            <strong id="usersCount">0</strong>
+            <p>مستخدم مسجل</p>
+          </article>
+
+          <article class="stat-card">
+            <span class="stat-icon">🤝</span>
+            <strong id="completedOrdersCount">0</strong>
+            <p>عملية مكتملة</p>
+          </article>
+
+          <article class="stat-card">
+            <span class="stat-icon">🌍</span>
+            <strong id="citiesCount">0</strong>
+            <p>مدينة متاحة</p>
+          </article>
+
+        </div>
       </div>
-      <div id="offers" class="grid"></div>
     </section>
 
-    <section id="safety" class="section safety">
-      <div>
-        <p class="eyebrow">SAFETY FIRST</p>
-        <h2>Prototype only</h2>
-        <p>This version does not custody funds, process fiat payments, or execute Mainnet transfers.</p>
+    <!-- التصنيفات -->
+    <section class="content-section">
+      <div class="section-container">
+
+        <div class="section-heading">
+          <div>
+            <span class="section-label">اكتشف</span>
+            <h2>تصفح حسب التصنيف</h2>
+          </div>
+
+          <a href="market.html" class="section-link">
+            عرض الكل
+          </a>
+        </div>
+
+        <div id="categoriesGrid" class="categories-grid">
+
+          <a href="market.html?category=electronics" class="category-card">
+            <span class="category-icon">📱</span>
+            <strong>إلكترونيات</strong>
+            <small>جوالات وأجهزة</small>
+          </a>
+
+          <a href="market.html?category=cars" class="category-card">
+            <span class="category-icon">🚘</span>
+            <strong>سيارات</strong>
+            <small>سيارات وقطع غيار</small>
+          </a>
+
+          <a href="market.html?category=real-estate" class="category-card">
+            <span class="category-icon">🏠</span>
+            <strong>عقارات</strong>
+            <small>بيع وإيجار</small>
+          </a>
+
+          <a href="market.html?category=fashion" class="category-card">
+            <span class="category-icon">👕</span>
+            <strong>أزياء</strong>
+            <small>ملابس وإكسسوارات</small>
+          </a>
+
+          <a href="market.html?category=home" class="category-card">
+            <span class="category-icon">🛋️</span>
+            <strong>المنزل</strong>
+            <small>أثاث وأدوات</small>
+          </a>
+
+          <a href="market.html?category=services" class="category-card">
+            <span class="category-icon">🛠️</span>
+            <strong>خدمات</strong>
+            <small>خدمات متنوعة</small>
+          </a>
+
+          <a href="market.html?category=food" class="category-card">
+            <span class="category-icon">🍽️</span>
+            <strong>أطعمة</strong>
+            <small>منتجات غذائية</small>
+          </a>
+
+          <a href="market.html?category=other" class="category-card">
+            <span class="category-icon">📦</span>
+            <strong>أخرى</strong>
+            <small>منتجات متنوعة</small>
+          </a>
+
+        </div>
       </div>
-      <ul>
-        <li>Never request wallet passphrases</li>
-        <li>Testnet-only flow</li>
-        <li>Fraud controls planned</li>
-        <li>Legal review required before launch</li>
-      </ul>
     </section>
+
+    <!-- المنتجات المميزة -->
+    <section class="content-section featured-section">
+      <div class="section-container">
+
+        <div class="section-heading">
+          <div>
+            <span class="section-label">مختاراتنا</span>
+            <h2>منتجات مميزة</h2>
+          </div>
+
+          <a href="market.html?featured=true" class="section-link">
+            عرض المزيد
+          </a>
+        </div>
+
+        <div
+          id="featuredProductsGrid"
+          class="products-grid"
+          aria-live="polite"
+        >
+          <!-- تُحمّل المنتجات من Firebase -->
+        </div>
+
+        <div id="featuredProductsSkeleton" class="products-grid">
+
+          <div class="product-skeleton"></div>
+          <div class="product-skeleton"></div>
+          <div class="product-skeleton"></div>
+          <div class="product-skeleton"></div>
+
+        </div>
+
+        <div id="featuredEmptyState" class="empty-state hidden">
+          <span>📦</span>
+          <h3>لا توجد منتجات مميزة حاليًا</h3>
+          <p>سيتم عرض المنتجات المميزة هنا بعد إضافتها.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- أحدث المنتجات -->
+    <section class="content-section">
+      <div class="section-container">
+
+        <div class="section-heading">
+          <div>
+            <span class="section-label">وصل حديثًا</span>
+            <h2>أحدث المنتجات</h2>
+          </div>
+
+          <a href="market.html?sort=latest" class="section-link">
+            مشاهدة السوق
+          </a>
+        </div>
+
+        <div
+          id="latestProductsGrid"
+          class="products-grid"
+          aria-live="polite"
+        >
+          <!-- تُحمّل المنتجات من Firebase -->
+        </div>
+
+        <div id="latestProductsSkeleton" class="products-grid">
+
+          <div class="product-skeleton"></div>
+          <div class="product-skeleton"></div>
+          <div class="product-skeleton"></div>
+          <div class="product-skeleton"></div>
+
+        </div>
+
+        <div id="latestEmptyState" class="empty-state hidden">
+          <span>🛍️</span>
+          <h3>لا توجد منتجات حتى الآن</h3>
+          <p>كن أول شخص يضيف منتجًا إلى السوق.</p>
+
+          <a href="add-product.html" class="primary-button">
+            إضافة منتج
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- دعوة لإضافة إعلان -->
+    <section class="seller-callout">
+      <div class="section-container">
+
+        <div class="seller-callout-content">
+
+          <div class="seller-callout-text">
+            <span class="section-label light-label">ابدأ البيع</span>
+
+            <h2>عندك منتج وتبغى تعرضه؟</h2>
+
+            <p>
+              أنشئ إعلانك، أضف الصور والسعر، وابدأ التواصل
+              مع المشترين داخل مجتمع Pi.
+            </p>
+
+            <a href="add-product.html" class="light-button">
+              أضف منتجك الآن
+            </a>
+          </div>
+
+          <div class="seller-callout-icon" aria-hidden="true">
+            🛒
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- الأمان -->
+    <section class="content-section">
+      <div class="section-container">
+
+        <div class="section-heading center-heading">
+          <div>
+            <span class="section-label">استخدم السوق بأمان</span>
+            <h2>نصائح لحماية المستخدمين</h2>
+          </div>
+        </div>
+
+        <div class="safety-grid">
+
+          <article class="safety-card">
+            <span>🔍</span>
+            <h3>تحقق من المنتج</h3>
+            <p>
+              افحص السلعة وتأكد من حالتها ومواصفاتها قبل إكمال الاتفاق.
+            </p>
+          </article>
+
+          <article class="safety-card">
+            <span>💬</span>
+            <h3>تواصل داخل التطبيق</h3>
+            <p>
+              استخدم رسائل PiXchange واحتفظ بتفاصيل المحادثة والاتفاق.
+            </p>
+          </article>
+
+          <article class="safety-card">
+            <span>🚫</span>
+            <h3>لا تشارك بيانات حساسة</h3>
+            <p>
+              لا ترسل كلمات المرور أو رموز الدخول أو مفاتيح المحفظة لأي شخص.
+            </p>
+          </article>
+
+          <article class="safety-card">
+            <span>🚩</span>
+            <h3>أبلغ عن المخالفات</h3>
+            <p>
+              استخدم زر الإبلاغ عند الاشتباه في إعلان أو مستخدم مخالف.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
   </main>
 
-  <footer>
-    <strong>PiXchange</strong>
-    <span>Testnet prototype</span>
+  <!-- التذييل -->
+  <footer class="main-footer">
+    <div class="section-container">
+
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+          <div class="brand">
+            <div class="brand-logo">π</div>
+
+            <div class="brand-text">
+              <strong>PiXchange</strong>
+              <span>السوق المجتمعي</span>
+            </div>
+          </div>
+
+          <p>
+            منصة مجتمعية لعرض المنتجات والتواصل بين البائعين والمشترين.
+          </p>
+        </div>
+
+        <div class="footer-column">
+          <h3>روابط سريعة</h3>
+
+          <a href="market.html">السوق</a>
+          <a href="add-product.html">إضافة منتج</a>
+          <a href="favorites.html">المفضلة</a>
+          <a href="orders.html">طلباتي</a>
+        </div>
+
+        <div class="footer-column">
+          <h3>الدعم والسياسات</h3>
+
+          <a href="about.html">عن التطبيق</a>
+          <a href="terms.html">الشروط والأحكام</a>
+          <a href="privacy.html">سياسة الخصوصية</a>
+          <a href="contact.html">تواصل معنا</a>
+        </div>
+
+        <div class="footer-column">
+          <h3>الحساب</h3>
+
+          <a href="login.html">تسجيل الدخول</a>
+          <a href="register.html">إنشاء حساب</a>
+          <a href="profile.html">حسابي</a>
+          <a href="messages.html">الرسائل</a>
+        </div>
+
+      </div>
+
+      <div class="footer-warning">
+        <strong>تنبيه:</strong>
+        PiXchange منصة لعرض المنتجات والتواصل بين المستخدمين.
+        يجب على كل مستخدم التحقق من السلعة والطرف الآخر قبل إتمام أي اتفاق.
+        لا تطلب المنصة كلمات مرور المحافظ أو المفاتيح الخاصة.
+      </div>
+
+      <div class="footer-bottom">
+        <p>
+          © <span id="currentYear"></span> PiXchange.
+          جميع الحقوق محفوظة.
+        </p>
+
+        <button id="installAppButton" class="install-button hidden" type="button">
+          تثبيت التطبيق
+        </button>
+      </div>
+
+    </div>
   </footer>
 
-  <script src="app.js"></script>
+  <!-- التنقل السفلي للجوال -->
+  <nav class="mobile-navigation" aria-label="التنقل الرئيسي">
+
+    <a href="index.html" class="mobile-nav-item active">
+      <span>⌂</span>
+      <small>الرئيسية</small>
+    </a>
+
+    <a href="market.html" class="mobile-nav-item">
+      <span>⌕</span>
+      <small>السوق</small>
+    </a>
+
+    <a href="add-product.html" class="mobile-nav-item add-nav-item">
+      <span>＋</span>
+      <small>إضافة</small>
+    </a>
+
+    <a href="messages.html" class="mobile-nav-item">
+      <span>✉</span>
+      <small>الرسائل</small>
+    </a>
+
+    <a href="profile.html" class="mobile-nav-item">
+      <span>♙</span>
+      <small>حسابي</small>
+    </a>
+
+  </nav>
+
+  <!-- رسائل التطبيق -->
+  <div
+    id="toastContainer"
+    class="toast-container"
+    aria-live="polite"
+    aria-atomic="true"
+  ></div>
+
+  <noscript>
+    <div class="noscript-message">
+      يجب تفعيل JavaScript حتى يعمل تطبيق PiXchange.
+    </div>
+  </noscript>
+
+  <script type="module" src="js/firebase.js"></script>
+  <script type="module" src="js/app.js"></script>
+
 </body>
 </html>
