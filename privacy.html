@@ -1,1 +1,1047 @@
-<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Privacy - PiXchange</title><link rel="stylesheet" href="styles.css"></head><body><main class="legal"><a href="index.html">← Back</a><h1>Privacy Policy</h1><p>PiXchange is currently a Testnet prototype. It does not process real trades or store wallet passphrases.</p><h2>Security</h2><p>Never share your Pi Wallet passphrase. PiXchange will never request it.</p></main></body></html>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+  >
+
+  <meta
+    name="description"
+    content="سياسة الخصوصية الخاصة بمنصة PiXchange."
+  >
+
+  <meta name="theme-color" content="#5d2d91">
+
+  <title>سياسة الخصوصية | PiXchange</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    .privacy-hero {
+      padding: 75px 0 55px;
+      background:
+        radial-gradient(
+          circle at 85% 20%,
+          rgba(242, 183, 5, 0.18),
+          transparent 28%
+        ),
+        linear-gradient(
+          135deg,
+          var(--surface-soft),
+          var(--background)
+        );
+      text-align: center;
+    }
+
+    .privacy-hero-icon {
+      width: 84px;
+      height: 84px;
+      display: grid;
+      place-items: center;
+      margin: 0 auto 20px;
+      border-radius: 26px;
+      color: #ffffff;
+      background: linear-gradient(
+        135deg,
+        var(--primary),
+        var(--primary-light)
+      );
+      box-shadow: var(--shadow-medium);
+      font-size: 40px;
+    }
+
+    .privacy-hero h1 {
+      margin-bottom: 12px;
+      color: var(--primary);
+      font-size: clamp(34px, 5vw, 54px);
+    }
+
+    .privacy-hero p {
+      max-width: 740px;
+      margin-inline: auto;
+      color: var(--text-soft);
+      font-size: 17px;
+      line-height: 1.9;
+    }
+
+    .privacy-page {
+      padding: 65px 0 110px;
+    }
+
+    .privacy-layout {
+      display: grid;
+      grid-template-columns: 250px minmax(0, 1fr);
+      align-items: start;
+      gap: 24px;
+    }
+
+    .privacy-sidebar {
+      position: sticky;
+      top: 95px;
+      padding: 22px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: var(--surface);
+      box-shadow: var(--shadow-small);
+    }
+
+    .privacy-sidebar h2 {
+      margin-bottom: 15px;
+      font-size: 18px;
+    }
+
+    .privacy-sidebar nav {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .privacy-sidebar a {
+      padding: 10px 12px;
+      border-radius: 11px;
+      color: var(--text-soft);
+      font-size: 13px;
+      font-weight: 700;
+      transition:
+        color var(--transition),
+        background-color var(--transition);
+    }
+
+    .privacy-sidebar a:hover {
+      color: var(--primary);
+      background: var(--surface-soft);
+    }
+
+    .privacy-card {
+      padding: 38px;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      background: var(--surface);
+      box-shadow: var(--shadow-small);
+    }
+
+    .privacy-intro {
+      margin-bottom: 34px;
+      padding: 22px;
+      border-radius: 17px;
+      color: var(--text-soft);
+      background: var(--surface-soft);
+      line-height: 1.9;
+    }
+
+    .privacy-section {
+      scroll-margin-top: 100px;
+      padding: 30px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .privacy-section:first-of-type {
+      padding-top: 0;
+      border-top: none;
+    }
+
+    .privacy-section h2 {
+      margin-bottom: 13px;
+      color: var(--primary);
+      font-size: 24px;
+    }
+
+    .privacy-section h3 {
+      margin: 20px 0 8px;
+      font-size: 17px;
+    }
+
+    .privacy-section p,
+    .privacy-section li {
+      color: var(--text-soft);
+      line-height: 2;
+    }
+
+    .privacy-section ul {
+      margin-top: 10px;
+      padding-right: 24px;
+      list-style: disc;
+    }
+
+    .privacy-section li + li {
+      margin-top: 7px;
+    }
+
+    .privacy-note {
+      margin-top: 20px;
+      padding: 18px;
+      border-right: 4px solid var(--secondary);
+      border-radius: 13px;
+      color: var(--text-soft);
+      background: rgba(242, 183, 5, 0.09);
+    }
+
+    .privacy-contact {
+      margin-top: 18px;
+      padding: 20px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: var(--surface-soft);
+    }
+
+    .privacy-contact a {
+      color: var(--primary);
+      font-weight: 800;
+      word-break: break-word;
+    }
+
+    .privacy-updated {
+      margin-top: 28px;
+      color: var(--text-light);
+      font-size: 13px;
+    }
+
+    @media (max-width: 820px) {
+      .privacy-layout {
+        display: block;
+      }
+
+      .privacy-sidebar {
+        position: static;
+        margin-bottom: 20px;
+      }
+
+      .privacy-sidebar nav {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 580px) {
+      .privacy-hero {
+        padding: 55px 0 40px;
+      }
+
+      .privacy-page {
+        padding-top: 35px;
+      }
+
+      .privacy-card {
+        padding: 24px 18px;
+      }
+
+      .privacy-sidebar nav {
+        grid-template-columns: 1fr;
+      }
+
+      .privacy-section h2 {
+        font-size: 21px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- شاشة التحميل -->
+  <div
+    id="appLoader"
+    class="app-loader"
+    aria-label="جاري تحميل الصفحة"
+  >
+    <div class="loader-logo">π</div>
+    <div class="loader-spinner"></div>
+    <p>جاري تحميل الصفحة...</p>
+  </div>
+
+
+  <!-- رأس الموقع -->
+  <header class="main-header">
+
+    <div class="container header-container">
+
+      <a
+        class="brand"
+        href="index.html"
+        aria-label="الصفحة الرئيسية"
+      >
+        <span class="brand-logo">π</span>
+
+        <span class="brand-text">
+          <strong>PiXchange</strong>
+          <small>سوق مجتمع Pi</small>
+        </span>
+      </a>
+
+
+      <nav
+        class="desktop-navigation"
+        aria-label="التنقل الرئيسي"
+      >
+        <a class="navigation-link" href="index.html">
+          الرئيسية
+        </a>
+
+        <a class="navigation-link" href="market.html">
+          السوق
+        </a>
+
+        <a class="navigation-link" href="index.html#featuredSection">
+          المميز
+        </a>
+
+        <a class="navigation-link active" href="privacy.html">
+          الخصوصية
+        </a>
+      </nav>
+
+
+      <div class="header-actions">
+
+        <button
+          id="themeToggle"
+          class="icon-button"
+          type="button"
+          aria-label="تغيير المظهر"
+        >
+          <span id="themeIcon">☾</span>
+        </button>
+
+
+        <button
+          id="notificationButton"
+          class="icon-button notification-button"
+          type="button"
+          aria-label="الإشعارات"
+        >
+          🔔
+        </button>
+
+
+        <button
+          id="accountButton"
+          class="account-button"
+          type="button"
+        >
+          <span>👤</span>
+          <span id="accountButtonText">دخول</span>
+        </button>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <main>
+
+    <!-- مقدمة الصفحة -->
+    <section class="privacy-hero">
+
+      <div class="container">
+
+        <div class="privacy-hero-icon">
+          🔒
+        </div>
+
+        <span class="section-label">
+          حماية بيانات المستخدم
+        </span>
+
+        <h1>سياسة الخصوصية</h1>
+
+        <p>
+          توضح هذه السياسة كيفية جمع البيانات واستخدامها
+          وحمايتها عند استخدام منصة PiXchange.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- محتوى الخصوصية -->
+    <section class="privacy-page">
+
+      <div class="container privacy-layout">
+
+        <aside class="privacy-sidebar">
+
+          <h2>محتويات الصفحة</h2>
+
+          <nav>
+            <a href="#introduction">مقدمة</a>
+            <a href="#data-collection">البيانات التي نجمعها</a>
+            <a href="#data-use">استخدام البيانات</a>
+            <a href="#firebase">خدمات Firebase</a>
+            <a href="#cookies">ملفات الارتباط</a>
+            <a href="#data-sharing">مشاركة البيانات</a>
+            <a href="#data-security">حماية البيانات</a>
+            <a href="#user-rights">حقوق المستخدم</a>
+            <a href="#children">خصوصية الأطفال</a>
+            <a href="#external-links">الروابط الخارجية</a>
+            <a href="#changes">تحديث السياسة</a>
+            <a href="#contact">التواصل معنا</a>
+          </nav>
+
+        </aside>
+
+
+        <article class="privacy-card">
+
+          <div class="privacy-intro">
+            باستخدامك لمنصة PiXchange، فإنك تقر بأنك قرأت
+            سياسة الخصوصية وفهمت كيفية التعامل مع بياناتك.
+            إذا كنت لا توافق على هذه السياسة، فيرجى عدم
+            استخدام المنصة.
+          </div>
+
+
+          <section
+            id="introduction"
+            class="privacy-section"
+          >
+
+            <h2>1. مقدمة</h2>
+
+            <p>
+              PiXchange هي منصة مجتمعية مستقلة تساعد
+              المستخدمين على عرض المنتجات والخدمات والتواصل
+              مع بعضهم داخل مجتمع Pi.
+            </p>
+
+            <p>
+              نحن نهتم بخصوصية المستخدمين ونسعى إلى التعامل
+              مع البيانات بطريقة واضحة وآمنة وبالحد الأدنى
+              اللازم لتشغيل خدمات المنصة.
+            </p>
+
+            <div class="privacy-note">
+              PiXchange ليست تابعة رسميًا أو ممثلة لـ
+              Pi Network أو شركة SocialChain Inc.
+            </div>
+
+          </section>
+
+
+          <section
+            id="data-collection"
+            class="privacy-section"
+          >
+
+            <h2>2. البيانات التي نجمعها</h2>
+
+            <p>
+              قد نجمع بعض البيانات عند تسجيل الدخول أو
+              استخدام خصائص المنصة، ومنها:
+            </p>
+
+            <ul>
+              <li>
+                الاسم الظاهر في حساب Google.
+              </li>
+
+              <li>
+                عنوان البريد الإلكتروني المرتبط بالحساب.
+              </li>
+
+              <li>
+                صورة الملف الشخصي عند توفرها.
+              </li>
+
+              <li>
+                رقم تعريف المستخدم الذي تنشئه خدمة Firebase.
+              </li>
+
+              <li>
+                معلومات المنتجات التي يضيفها المستخدم، مثل
+                الاسم والسعر والوصف والتصنيف والمدينة والصورة.
+              </li>
+
+              <li>
+                المنتجات التي يضيفها المستخدم إلى المفضلة.
+              </li>
+
+              <li>
+                بيانات تقنية عامة، مثل نوع المتصفح والجهاز
+                ووقت استخدام المنصة.
+              </li>
+            </ul>
+
+            <p>
+              لا نطلب من المستخدم إدخال كلمات مرور حساب Google
+              داخل المنصة، لأن تسجيل الدخول يتم من خلال خدمة
+              Google الرسمية.
+            </p>
+
+          </section>
+
+
+          <section
+            id="data-use"
+            class="privacy-section"
+          >
+
+            <h2>3. كيفية استخدام البيانات</h2>
+
+            <p>
+              قد نستخدم البيانات للأغراض التالية:
+            </p>
+
+            <ul>
+              <li>
+                إنشاء حساب المستخدم وتسجيل الدخول إلى المنصة.
+              </li>
+
+              <li>
+                عرض اسم المستخدم وصورته داخل حسابه.
+              </li>
+
+              <li>
+                نشر المنتجات وإدارتها وعرضها في السوق.
+              </li>
+
+              <li>
+                حفظ المنتجات المفضلة.
+              </li>
+
+              <li>
+                تحسين تجربة الاستخدام وأداء الموقع.
+              </li>
+
+              <li>
+                منع إساءة الاستخدام والاحتيال والمحتوى المخالف.
+              </li>
+
+              <li>
+                الرد على طلبات الدعم أو البلاغات.
+              </li>
+
+              <li>
+                توفير الإحصائيات العامة للمنصة.
+              </li>
+            </ul>
+
+            <p>
+              لن نستخدم البيانات لأغراض غير مرتبطة بخدمات
+              PiXchange دون إشعار المستخدم عند الحاجة.
+            </p>
+
+          </section>
+
+
+          <section
+            id="firebase"
+            class="privacy-section"
+          >
+
+            <h2>4. استخدام خدمات Firebase</h2>
+
+            <p>
+              تستخدم المنصة خدمات Firebase التابعة لشركة Google
+              لتوفير بعض الوظائف التقنية، ومنها:
+            </p>
+
+            <ul>
+              <li>
+                Firebase Authentication لتسجيل الدخول.
+              </li>
+
+              <li>
+                Cloud Firestore لتخزين بيانات المستخدمين
+                والمنتجات والمفضلة.
+              </li>
+
+              <li>
+                خدمات الاستضافة أو التحليلات عند تفعيلها.
+              </li>
+            </ul>
+
+            <p>
+              قد تعالج Google بعض البيانات التقنية وفقًا
+              لسياساتها وشروط خدماتها. ينصح المستخدم بمراجعة
+              سياسة الخصوصية الخاصة بـ Google.
+            </p>
+
+          </section>
+
+
+          <section
+            id="cookies"
+            class="privacy-section"
+          >
+
+            <h2>5. ملفات الارتباط والتخزين المحلي</h2>
+
+            <p>
+              قد تستخدم PiXchange ملفات تعريف الارتباط أو
+              التخزين المحلي في المتصفح للأغراض التالية:
+            </p>
+
+            <ul>
+              <li>
+                الاحتفاظ بحالة تسجيل الدخول.
+              </li>
+
+              <li>
+                حفظ اختيار الوضع الليلي أو الفاتح.
+              </li>
+
+              <li>
+                حفظ بعض التفضيلات لتحسين تجربة المستخدم.
+              </li>
+
+              <li>
+                تشغيل خصائص Firebase الأساسية.
+              </li>
+            </ul>
+
+            <p>
+              يمكن للمستخدم حذف ملفات الارتباط والتخزين المحلي
+              من إعدادات المتصفح، لكن قد يؤدي ذلك إلى تسجيل
+              الخروج أو إعادة ضبط بعض الإعدادات.
+            </p>
+
+          </section>
+
+
+          <section
+            id="data-sharing"
+            class="privacy-section"
+          >
+
+            <h2>6. مشاركة البيانات</h2>
+
+            <p>
+              لا نقوم ببيع البيانات الشخصية للمستخدمين.
+            </p>
+
+            <p>
+              قد تتم مشاركة بعض البيانات فقط في الحالات التالية:
+            </p>
+
+            <ul>
+              <li>
+                مع مقدمي الخدمات التقنية الضروريين لتشغيل
+                المنصة، مثل Google Firebase.
+              </li>
+
+              <li>
+                عندما يختار المستخدم نشر معلومات المنتج
+                للعامة داخل السوق.
+              </li>
+
+              <li>
+                عند وجود طلب قانوني ملزم من جهة مختصة.
+              </li>
+
+              <li>
+                لحماية حقوق المنصة أو المستخدمين أو منع
+                الاحتيال والأنشطة الضارة.
+              </li>
+            </ul>
+
+            <div class="privacy-note">
+              البيانات التي يضعها المستخدم داخل وصف المنتج
+              أو الإعلان قد تصبح ظاهرة لجميع زوار المنصة،
+              لذلك يجب عدم نشر معلومات شخصية حساسة.
+            </div>
+
+          </section>
+
+
+          <section
+            id="data-security"
+            class="privacy-section"
+          >
+
+            <h2>7. حماية البيانات</h2>
+
+            <p>
+              نستخدم إجراءات تقنية وتنظيمية معقولة لحماية
+              البيانات من الوصول غير المصرح به أو التعديل
+              أو الفقدان.
+            </p>
+
+            <p>
+              تشمل إجراءات الحماية استخدام خدمات موثوقة،
+              وقواعد أمان Firebase، والتحقق من هوية المستخدم
+              قبل السماح ببعض العمليات.
+            </p>
+
+            <p>
+              رغم ذلك، لا توجد وسيلة نقل أو تخزين عبر الإنترنت
+              تضمن الحماية الكاملة بنسبة 100%، ولذلك لا يمكن
+              تقديم ضمان مطلق ضد جميع المخاطر التقنية.
+            </p>
+
+          </section>
+
+
+          <section
+            id="user-rights"
+            class="privacy-section"
+          >
+
+            <h2>8. حقوق المستخدم</h2>
+
+            <p>
+              يحق للمستخدم، بحسب الأنظمة المعمول بها، طلب:
+            </p>
+
+            <ul>
+              <li>
+                معرفة البيانات المرتبطة بحسابه.
+              </li>
+
+              <li>
+                تعديل المعلومات غير الصحيحة.
+              </li>
+
+              <li>
+                حذف المنتجات التي قام بنشرها.
+              </li>
+
+              <li>
+                طلب حذف حسابه والبيانات المرتبطة به.
+              </li>
+
+              <li>
+                سحب الموافقة على معالجة بعض البيانات عند
+                انطباق ذلك.
+              </li>
+
+              <li>
+                تقديم استفسار أو اعتراض متعلق بالخصوصية.
+              </li>
+            </ul>
+
+            <p>
+              قد نحتاج إلى التحقق من هوية المستخدم قبل تنفيذ
+              طلبات الوصول أو الحذف لحماية الحسابات من
+              الطلبات غير المصرح بها.
+            </p>
+
+          </section>
+
+
+          <section
+            id="children"
+            class="privacy-section"
+          >
+
+            <h2>9. خصوصية الأطفال</h2>
+
+            <p>
+              المنصة غير مخصصة للأطفال الصغار، ولا نستهدف
+              جمع بياناتهم الشخصية بشكل متعمد.
+            </p>
+
+            <p>
+              إذا تم اكتشاف حساب يعود لطفل دون السن النظامي
+              المسموح به في بلده، فقد يتم اتخاذ الإجراءات
+              المناسبة لحذف البيانات أو تقييد الحساب.
+            </p>
+
+          </section>
+
+
+          <section
+            id="external-links"
+            class="privacy-section"
+          >
+
+            <h2>10. الروابط الخارجية</h2>
+
+            <p>
+              قد تحتوي المنصة على روابط لمواقع أو خدمات
+              خارجية، مثل روابط صور المنتجات أو صفحات تواصل
+              البائعين.
+            </p>
+
+            <p>
+              لا تتحمل PiXchange مسؤولية سياسات الخصوصية أو
+              محتوى المواقع الخارجية، ويجب على المستخدم مراجعة
+              سياسات تلك المواقع قبل استخدامها.
+            </p>
+
+          </section>
+
+
+          <section
+            id="changes"
+            class="privacy-section"
+          >
+
+            <h2>11. تحديث سياسة الخصوصية</h2>
+
+            <p>
+              قد نقوم بتعديل سياسة الخصوصية عند إضافة خصائص
+              جديدة أو عند الحاجة إلى تحديث الإجراءات القانونية
+              أو التقنية.
+            </p>
+
+            <p>
+              سيتم نشر النسخة المحدثة في هذه الصفحة، ويعتبر
+              استمرار استخدام المنصة بعد نشر التحديث موافقة
+              على السياسة الجديدة.
+            </p>
+
+          </section>
+
+
+          <section
+            id="contact"
+            class="privacy-section"
+          >
+
+            <h2>12. التواصل معنا</h2>
+
+            <p>
+              للاستفسارات أو الطلبات المتعلقة بالخصوصية،
+              يمكنك التواصل عبر البريد الإلكتروني:
+            </p>
+
+            <div class="privacy-contact">
+              <a href="mailto:support@saudipigcv.com">
+                support@saudipigcv.com
+              </a>
+            </div>
+
+            <p class="privacy-updated">
+              آخر تحديث: يوليو 2026
+            </p>
+
+          </section>
+
+        </article>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- تذييل الموقع -->
+  <footer class="main-footer">
+
+    <div class="container footer-grid">
+
+      <div class="footer-brand-column">
+
+        <a
+          class="brand footer-brand"
+          href="index.html"
+        >
+          <span class="brand-logo">π</span>
+
+          <span class="brand-text">
+            <strong>PiXchange</strong>
+            <small>سوق مجتمع Pi</small>
+          </span>
+        </a>
+
+        <p>
+          منصة مجتمعية مستقلة لعرض وشراء المنتجات
+          والخدمات باستخدام عملة Pi.
+        </p>
+
+      </div>
+
+
+      <div class="footer-column">
+
+        <h3>روابط سريعة</h3>
+
+        <a href="index.html">الرئيسية</a>
+        <a href="market.html">السوق</a>
+        <a href="index.html#featuredSection">المنتجات المميزة</a>
+
+      </div>
+
+
+      <div class="footer-column">
+
+        <h3>القوانين</h3>
+
+        <a href="privacy.html">
+          سياسة الخصوصية
+        </a>
+
+        <button
+          id="termsButton"
+          class="footer-link-button"
+          type="button"
+        >
+          الشروط والأحكام
+        </button>
+
+      </div>
+
+
+      <div class="footer-column">
+
+        <h3>التواصل</h3>
+
+        <p>
+          للاستفسارات والدعم الفني.
+        </p>
+
+        <a href="mailto:support@saudipigcv.com">
+          support@saudipigcv.com
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <div class="container footer-bottom">
+
+      <p>
+        © <span id="currentYear"></span>
+        PiXchange. جميع الحقوق محفوظة.
+      </p>
+
+      <p>
+        منصة مستقلة وغير تابعة رسميًا لـ Pi Network.
+      </p>
+
+    </div>
+
+  </footer>
+
+
+  <!-- شريط الجوال -->
+  <nav
+    class="mobile-bottom-navigation"
+    aria-label="قائمة الجوال"
+  >
+
+    <a
+      class="mobile-navigation-item"
+      href="index.html"
+    >
+      <span>⌂</span>
+      <small>الرئيسية</small>
+    </a>
+
+
+    <a
+      class="mobile-navigation-item"
+      href="market.html"
+    >
+      <span>⌕</span>
+      <small>السوق</small>
+    </a>
+
+
+    <a
+      class="mobile-add-button"
+      href="index.html#latestSection"
+      aria-label="المنتجات"
+    >
+      π
+    </a>
+
+
+    <button
+      id="mobileMessagesButton"
+      class="mobile-navigation-item"
+      type="button"
+    >
+      <span>✉</span>
+      <small>الرسائل</small>
+    </button>
+
+
+    <button
+      id="mobileAccountButton"
+      class="mobile-navigation-item active"
+      type="button"
+    >
+      <span>🔒</span>
+      <small>الخصوصية</small>
+    </button>
+
+  </nav>
+
+
+  <!-- نافذة تسجيل الدخول -->
+  <div
+    id="accountModal"
+    class="modal-overlay hidden"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="accountModalTitle"
+  >
+
+    <div class="modal-card">
+
+      <button
+        id="closeAccountModal"
+        class="modal-close"
+        type="button"
+        aria-label="إغلاق"
+      >
+        ×
+      </button>
+
+
+      <div class="modal-icon">
+        👤
+      </div>
+
+
+      <h2 id="accountModalTitle">
+        تسجيل الدخول
+      </h2>
+
+
+      <p>
+        سجل الدخول لإضافة المنتجات وحفظ المفضلة
+        والتواصل مع البائعين.
+      </p>
+
+
+      <button
+        id="temporaryLoginButton"
+        class="google-login-button"
+        type="button"
+      >
+        <span class="google-icon">G</span>
+        تسجيل الدخول باستخدام Google
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- التنبيهات -->
+  <div
+    id="toastContainer"
+    class="toast-container"
+    aria-live="polite"
+    aria-atomic="true"
+  ></div>
+
+
+  <script type="module" src="app.js"></script>
+
+</body>
+</html>
