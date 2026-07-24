@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="ar" dir="rtl" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="description" content="PiXchange سوق مجتمع Pi لعرض المنتجات والخدمات.">
+  <meta name="theme-color" content="#5d2d91">
+  <title>PiXchange | سوق مجتمع Pi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="appLoader" class="app-loader"><div class="loader-logo">π</div><div class="spinner"></div><p>جاري تحميل PiXchange...</p></div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top"><span class="brand-logo">π</span><span><strong>PiXchange</strong><small>سوق مجتمع Pi</small></span></a>
+      <nav class="desktop-nav" aria-label="التنقل الرئيسي">
+        <a href="#top">الرئيسية</a><a href="#featured">المميز</a><a href="#latest">أحدث المنتجات</a><a href="#categories">التصنيفات</a>
+      </nav>
+      <div class="header-actions">
+        <button id="themeToggle" class="icon-btn" aria-label="تغيير المظهر">☾</button>
+        <button id="accountButton" class="account-btn">👤 <span id="accountButtonText">دخول</span></button>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">سوق مجتمع Pi</span>
+          <h1>اشترِ وبِع منتجاتك <em>باستخدام عملة Pi</em></h1>
+          <p>اعرض منتجاتك وخدماتك وتواصل مع مجتمع Pi في واجهة عربية سريعة ومناسبة للجوال.</p>
+          <form id="heroSearchForm" class="search-box">
+            <input id="heroSearchInput" type="search" placeholder="ابحث عن جوال، سيارة، أثاث..." autocomplete="off">
+            <button class="primary-btn" type="submit">بحث</button>
+          </form>
+          <div class="hero-actions"><button id="addProductHeroButton" class="primary-btn large">+ أضف منتجك</button><a class="secondary-btn large" href="#latest">تصفح السوق</a></div>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <div class="showcase-card"><div class="bag">🛍️</div><strong>PiXchange</strong><span>منتجات حقيقية من المجتمع</span></div>
+          <div class="float-card one">⚡ بيع سريع</div><div class="float-card two">🔒 مجتمع منظم</div><div class="pi-orb">π</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="stats"><div class="container stats-grid">
+      <article><span>📦</span><strong id="productsCount">0</strong><small>منتج معروض</small></article>
+      <article><span>👥</span><strong id="usersCount">1</strong><small>عضو تجريبي</small></article>
+      <article><span>📍</span><strong id="citiesCount">0</strong><small>مدينة</small></article>
+      <article><span>🤝</span><strong id="ordersCount">0</strong><small>عملية ناجحة</small></article>
+    </div></section>
+
+    <section id="categories" class="section"><div class="container">
+      <div class="section-head"><div><span>استكشف</span><h2>التصنيفات</h2></div></div>
+      <div class="category-grid">
+        <button data-category="electronics">📱<strong>إلكترونيات</strong></button><button data-category="cars">🚘<strong>سيارات</strong></button><button data-category="home">🛋️<strong>المنزل</strong></button><button data-category="fashion">👕<strong>أزياء</strong></button><button data-category="services">🛠️<strong>خدمات</strong></button><button data-category="other">✨<strong>أخرى</strong></button>
+      </div>
+    </div></section>
+
+    <section id="featured" class="section alt"><div class="container">
+      <div class="section-head"><div><span>مختاراتنا</span><h2>منتجات مميزة</h2></div></div>
+      <div id="featuredProductsGrid" class="product-grid"></div>
+      <div id="featuredEmptyState" class="empty hidden">لا توجد منتجات مميزة حاليًا.</div>
+    </div></section>
+
+    <section id="latest" class="section"><div class="container">
+      <div class="section-head"><div><span>وصل حديثًا</span><h2>أحدث المنتجات</h2></div><button id="clearSearch" class="text-btn hidden">إلغاء البحث</button></div>
+      <div id="latestProductsGrid" class="product-grid"></div>
+      <div id="latestEmptyState" class="empty hidden"><div>🔎</div><h3>لا توجد نتائج</h3><p>جرّب كلمة بحث أخرى أو أضف أول منتج.</p><button id="emptyAddProductButton" class="primary-btn">أضف منتجًا</button></div>
+    </div></section>
+
+    <section class="seller-cta"><div class="container seller-inner"><div><span>ابدأ البيع اليوم</span><h2>حوّل أغراضك إلى فرص داخل مجتمع Pi</h2><p>أنشئ إعلانك خلال أقل من دقيقة.</p></div><button id="sellerAddProductButton" class="light-btn">+ إضافة منتج</button></div></section>
+  </main>
+
+  <footer><div class="container footer-grid"><div class="brand footer-brand"><span class="brand-logo">π</span><span><strong>PiXchange</strong><small>نسخة تجريبية أولى</small></span></div><div><strong>روابط</strong><a href="privacy.html">الخصوصية</a><a href="terms.html">الشروط</a></div><div><strong>تواصل</strong><a href="mailto:support@saudipigcv.com">support@saudipigcv.com</a></div></div><p class="copyright">© <span id="currentYear"></span> PiXchange</p></footer>
+
+  <nav class="mobile-nav"><a href="#top">⌂<span>الرئيسية</span></a><a href="#latest">▦<span>السوق</span></a><button id="mobileAddProductButton">＋</button><button id="mobileAccountButton">👤<span>حسابي</span></button></nav>
+
+  <div id="accountModal" class="modal hidden" role="dialog" aria-modal="true"><div class="modal-card small"><button class="modal-close" data-close="accountModal">×</button><div class="modal-icon">👤</div><h2>حساب PiXchange</h2><p>تسجيل Google وFirebase سيُفعّلان بعد إضافة بيانات مشروع Firebase.</p><button id="demoLoginButton" class="primary-btn full">دخول تجريبي</button></div></div>
+
+  <div id="addProductModal" class="modal hidden" role="dialog" aria-modal="true"><div class="modal-card"><button class="modal-close" data-close="addProductModal">×</button><h2>إضافة منتج جديد</h2><p class="muted">يُحفظ الإعلان على هذا الجهاز في النسخة التجريبية.</p>
+    <form id="productForm" class="form-grid">
+      <label>اسم المنتج<input id="productTitle" required maxlength="80" placeholder="مثال: آيفون 15 برو"></label>
+      <label>السعر بعملة Pi<input id="productPrice" type="number" required min="0.0001" step="0.0001" placeholder="4.5"></label>
+      <label>المدينة<input id="productCity" required maxlength="50" placeholder="مكة المكرمة"></label>
+      <label>التصنيف<select id="productCategory" required><option value="">اختر</option><option value="electronics">إلكترونيات</option><option value="cars">سيارات</option><option value="home">المنزل</option><option value="fashion">أزياء</option><option value="services">خدمات</option><option value="other">أخرى</option></select></label>
+      <label class="wide">رابط الصورة (اختياري)<input id="productImage" type="url" dir="ltr" placeholder="https://..."></label>
+      <label class="wide">الوصف<textarea id="productDescription" rows="4" required maxlength="500" placeholder="اكتب حالة المنتج وتفاصيله..."></textarea></label>
+      <label class="check wide"><input id="productFeatured" type="checkbox"> عرض المنتج ضمن المميز</label>
+      <button class="primary-btn full wide" type="submit">نشر المنتج</button>
+    </form>
+  </div></div>
+
+  <div id="toastContainer" class="toast-container" aria-live="polite"></div>
+  <script src="app.js" defer></script>
+</body>
+</html>
